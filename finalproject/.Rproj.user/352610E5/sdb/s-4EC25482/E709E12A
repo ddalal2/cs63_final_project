@@ -1,0 +1,17 @@
+{
+    "contents" : "library(shiny)\nlibrary(rCharts)\nload(\"data.RData\")\n\nshinyServer(function(input, output) {\n  output$q1 <- renderChart({\n    q1 <- rCharts:::Highcharts$new()\n    q1$chart(zoomType = \"xy\", type = 'bar')\n    q1$xAxis(categories = q1_results$Name, title = list(text=\"Authors\"))\n    q1$title(text=\"Most Published Authors\")\n    q1$series(data = q1_results$Long_Score, name = \"Longevity Score (years)\", legendIndex = 2 )\n    q1$series(data = q1_results$Count, name = \"Publication Count\", legendIndex = 1)\n    q1$addParams(dom = 'q1')\n    return(q1)\n  })\n  output$q2 <- renderChart({\n    q2 <- rCharts:::Highcharts$new()\n    q2$chart(zoomType = \"xy\", type = 'bar')\n    q2$xAxis(categories = q2_results$Name, title = list(text=\"Authors\"))\n    q2$title(text=\"Rising Stars Authors\")\n    q2$series(data = q2_results$Long_Score, name = \"Longevity Score (years)\", legendIndex = 2 )\n    q2$series(data = q2_results$Count, name = \"Publication Count\", legendIndex = 1)\n    q2$addParams(dom = 'q2')\n    return(q2)\n  })\n  output$q3 <- renderChart({\n    q3 <- rCharts:::Highcharts$new()\n    q3$chart(zoomType = \"xy\", type = 'bar')\n    q3$xAxis(categories = q3_results$Name, title = list(text=\"Authors\"))\n    q3$yAxis(title = list(text = \"Score\"))\n    q3$title(text=\"Most Socialble Authors\")\n    q3$series(data = q3_results$Social_Score, name = \"Socialbility Score\")\n    q3$addParams(dom = 'q3')\n    return(q3)\n    \n  })\n  output$q4 <- renderChart({\n    q4 <- rCharts:::Highcharts$new()\n    q4$chart(zoomType = \"xy\", type = 'bar')\n    q4$xAxis(categories = q4_results$Journal, title = list(text=\"Authors\"))\n    q4$yAxis(title = list(text = \"Avg. Citations per Paper\"))\n    q4$title(text=\"Top Journals Based on Avg Citations\")\n    q4$series(data = q4_results$avg_cits, name = \"Avg. Citations\")\n    q4$addParams(dom = 'q4')\n    return(q4)\n  })\n})\n",
+    "created" : 1431560951838.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2869931203",
+    "id" : "E709E12A",
+    "lastKnownWriteTime" : 1431557713,
+    "path" : "~/Documents/workspace/cs63/finalproject/code/finalproject/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
